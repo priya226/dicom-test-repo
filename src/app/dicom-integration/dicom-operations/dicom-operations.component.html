@@ -1,0 +1,20 @@
+<p>dicom-operations works!</p>
+<div style="height:100%; width: 100%;">
+    <div style="display: flex; margin-left: 120px; align-items: center;">
+  
+      <div class="choose_file">
+        Choose Your DICOM Files
+        <input class="hide_file" type="file" multiple accept="application/dicom" id="imagens" title="Select Dicom Files"
+        (change)="loadDICOMImages($event)">
+      </div>
+  
+  
+    </div>
+  
+    <div style="display: flex;height: calc(100% - 90px); width:100%;">
+      <lib-nsl-dicom-operation style="height:100%; width:100%; margin: 10px;"></lib-nsl-dicom-operation>
+    </div>
+  </div>
+  
+
+

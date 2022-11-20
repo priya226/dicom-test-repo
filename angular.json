@@ -28,9 +28,15 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/hammerjs/hammer.js",
+              "./node_modules/cornerstone-math/dist/cornerstoneMath.js",
+              "./node_modules/cornerstone-tools/dist/cornerstoneTools.js", 
+              "./node_modules/cornerstone-wado-image-loader/dist/cornerstoneWADOImageLoader.bundle.min.js",
+               "./node_modules/dicom-parser/dist/dicomParser.js"]
           },
           "configurations": {
             "production": {
@@ -96,12 +102,47 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
+    },
+    "nsl-dicom-operation": {
+      "projectType": "library",
+      "root": "projects/nsl-dicom-operation",
+      "sourceRoot": "projects/nsl-dicom-operation/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nsl-dicom-operation/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nsl-dicom-operation/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nsl-dicom-operation/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/nsl-dicom-operation/src/test.ts",
+            "tsConfig": "projects/nsl-dicom-operation/tsconfig.spec.json",
+            "karmaConfig": "projects/nsl-dicom-operation/karma.conf.js"
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": "24b9add9-c7d6-4ba6-b8f4-affd1d68c01f"
   }
 }
